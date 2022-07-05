@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController n1Control = TextEditingController();
   TextEditingController n2Control = TextEditingController();
   var n1, n2;
-  var result;
+  var result = 0.0;
   @override
   void initState() {
     super.initState();
@@ -70,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: TextField(
                       controller: n1Control,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           hintText: "Nhập số thứ nhất",
                           hintStyle: TextStyle(
@@ -84,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: TextField(
                       controller: n2Control,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           hintText: "Nhập số thứ hai",
                           hintStyle: TextStyle(
@@ -114,8 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       bool err = false;
                       try {
                         setState(() {
-                          n1 = int.tryParse(n1Control.text);
-                          n2 = int.tryParse(n2Control.text);
+                          n1 = double.tryParse(n1Control.text);
+                          n2 = double.tryParse(n2Control.text);
                           if (n1Control.text.isEmpty ||
                               n2Control.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -136,14 +138,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         bool err = false;
                         try {
                           setState(() {
-                            n1 = int.tryParse(n1Control.text);
-                            n2 = int.tryParse(n2Control.text);
+                            n1 = double.tryParse(n1Control.text);
+                            n2 = double.tryParse(n2Control.text);
                             if (n1Control.text.isEmpty ||
                                 n2Control.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text("Xin nhập 2 số ")));
                             } else
-                              result = n1 + n2;
+                              result = n1 - n2;
                           });
                         } catch (e, s) {
                           err = true;
@@ -158,14 +160,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         bool err = false;
                         try {
                           setState(() {
-                            n1 = int.tryParse(n1Control.text);
-                            n2 = int.tryParse(n2Control.text);
+                            n1 = double.tryParse(n1Control.text);
+                            n2 = double.tryParse(n2Control.text);
                             if (n1Control.text.isEmpty ||
                                 n2Control.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text("Xin nhập 2 số ")));
                             } else
-                              result = n1 + n2;
+                              result = n1 * n2;
                           });
                         } catch (e, s) {
                           err = true;
@@ -183,14 +185,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         bool err = false;
                         try {
                           setState(() {
-                            n1 = int.tryParse(n1Control.text);
-                            n2 = int.tryParse(n2Control.text);
+                            n1 = double.tryParse(n1Control.text);
+                            n2 = double.tryParse(n2Control.text);
                             if (n1Control.text.isEmpty ||
                                 n2Control.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text("Xin nhập 2 số ")));
                             } else
-                              result = n1 + n2;
+                              result = n1 / n2;
                           });
                         } catch (e, s) {
                           err = true;
